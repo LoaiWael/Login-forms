@@ -38,41 +38,17 @@ main {
         background-size: cover;
         background-repeat: no-repeat;
         animation: img-in 1700ms;
+        border-radius: 15px;
     }
-
-    /* .nav {
-        position: absolute;
-        z-index: 2;
-        top: 7px;
-        left: 150px;
-        padding: 5px;
-        background-color: var(--main-color);
-        border-radius: 20px;
-        width: 150px;
-        display: flex;
-        justify-content: space-between;
-
-        a {
-            padding: 5px;
-            text-decoration: none;
-            color: unset;
-        }
-
-        a.login {
-            background-color: var(--third-color);
-            border-radius: 25px;
-            color: white;
-        }
-    } */
 }
 
 .left-decor {
     background-color: var(--main-color);
     border-radius: 10px;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     top: 0;
-    left: 0px;
+    left: 0;
     animation: logo-in 1100ms;
 
     a {
@@ -90,6 +66,32 @@ main {
     a:hover {
         transform: scale(1.1);
     }
+}
+
+.left-decor::after {
+    content: "";
+    width: 10%;
+    height: 25%;
+    position: absolute;
+    top: 15px;
+    left: 100%;
+    background-color: transparent;
+    border-radius: 15px 0 0 0;
+    box-shadow: -5px -2px 0 2px var(--main-color);
+}
+
+.left-decor::before {
+    content: "";
+    width: 10%;
+    height: 25%;
+    position: absolute;
+    top: 67.5px;
+    left: 15px;
+    background-color: transparent;
+    border-radius: 15px 0 0 0;
+    box-shadow: -5px -2px 0 2px var(--main-color);
+    animation-name: logo-in;
+    animation-play-state: paused;
 }
 
 .form {
@@ -130,4 +132,23 @@ main {
         transform: translateX(-30px);
     }
 
+}
+
+@media (max-width:750px) {
+    .main-background {
+        form {
+            font-size: 12px;
+
+        }
+    }
+
+    .left-decor {
+        a {
+            font-size: 20px;
+        }
+    }
+
+    .left-decor::before {
+        top: 60px;
+    }
 }
